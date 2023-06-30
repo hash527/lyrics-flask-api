@@ -1,11 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
-import os,nltk
-root = os.path.dirname(os.path.abspath(__file__))
-download_dir = os.path.join(root)
-os.chdir(download_dir)
-nltk.data.path.append(download_dir)
-from nltk.tokenize import sent_tokenize, word_tokenize
+import nltk
+nltk.data.load(resource_url='./my_nltk_dir/tokenizers/punkt/english.pickle')
+from nltk.tokenize import  word_tokenize
 
 
 app = Flask(__name__)
